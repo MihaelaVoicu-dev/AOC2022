@@ -5,8 +5,7 @@
 #include <vector>
 #include <fstream>
 #include<string>
-#include <deque>
-#include <unordered_map>
+
 using namespace std;
 vector<string> split(string s, string delimiter) {
 	size_t pos_start = 0, pos_end, delim_len = delimiter.length();
@@ -44,14 +43,6 @@ int main()
 	getInput("input.in");
 	//cod neterminat
 	//de adaugat in systemPath calea de cautare parinte( stringul "..") si de recalculare a size-ului
-	// de creat functie de parsare a stringului cu delimitare ::size_t pos = 0;
-	//std::string token;
-	//while ((pos = s.find(delimiter)) != std::string::npos) {
-	//	token = s.substr(0, pos);
-	//	std::cout << token << std::endl;
-	//	s.erase(0, pos + delimiter.length());
-	//}
-	//
 	//parcurgerea cu verificare pentru fiecare command in parte if (stringDupaDelimitare=" ..")cu apelul functiilor din system path 
 }
 
