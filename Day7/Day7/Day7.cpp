@@ -29,9 +29,6 @@ void getInput(const string& fileName)
 	input.open(fileName);
 	string line;
 	vector<string> commandsLines;
-	vector<string>splitLine;
-	deque<std::string> dir_stack;
-	uint64_t score = 0;
 	std::unordered_map<std::string, uint64_t> directories;
 	do
 	{
@@ -45,6 +42,17 @@ void getInput(const string& fileName)
 int main()
 {
 	getInput("input.in");
+	//cod neterminat
+	//de adaugat in systemPath calea de cautare parinte( stringul "..") si de recalculare a size-ului
+	// de creat functie de parsare a stringului cu delimitare ::size_t pos = 0;
+	//std::string token;
+	//while ((pos = s.find(delimiter)) != std::string::npos) {
+	//	token = s.substr(0, pos);
+	//	std::cout << token << std::endl;
+	//	s.erase(0, pos + delimiter.length());
+	//}
+	//
+	//parcurgerea cu verificare pentru fiecare command in parte if (stringDupaDelimitare=" ..")cu apelul functiilor din system path 
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
