@@ -52,7 +52,7 @@ int getPart1(const string& fileName)
 			}
 			else
 			{
-				sus
+				//sus
 				verify = true;
 				int rowUp = row - 1;
 				while (rowUp >= 0) {
