@@ -6,6 +6,11 @@
 #include<string>
 #include <vector>
 
+/*
+Pe inputul mic rezultatul este corect<atat parcurgere cat si calculare>. 
+Pe inputul mare, nu da ok. 
+Can you help me, please? :)
+*/
 using namespace std;
 
 vector<string> getInput(string fileName,vector<string> &motions) {
