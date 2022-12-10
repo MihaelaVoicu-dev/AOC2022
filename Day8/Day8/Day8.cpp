@@ -35,16 +35,16 @@ int getPart1(const string& fileName)
 	int numberOfVisibleTrees = 0;
 	for (int row = 0; row < length; ++row) {
 		for (int colomn = 0; colomn < length; ++colomn) {
-			//dreapta 
+			//jos 
 			bool verify = true;
 			int value = trees[row][colomn];
-			int rowRight = row + 1;
-			while (rowRight < length) {
-				if (trees[rowRight][colomn] >= value) {
+			int rowDown = row + 1;
+			while (rowDown < length) {
+				if (trees[rowDown][colomn] >= value) {
 					verify = false;
 					break;
 				}
-				rowRight++;
+				rowDown++;
 			}
 			if (verify) {
 				numberOfVisibleTrees++;
@@ -52,30 +52,30 @@ int getPart1(const string& fileName)
 			}
 			else
 			{
-				//stanga
+				//sus
 				verify = true;
-				int rowLeft = row - 1;
-				while (rowLeft >= 0) {
-					if (trees[rowLeft][colomn] >= value) {
+				int rowUp = row - 1;
+				while (rowUp >= 0) {
+					if (trees[rowUp][colomn] >= value) {
 						verify = false;
 						break;
 					}
-					rowLeft--;
+					rowUp--;
 				}
 				if (verify) {
 					numberOfVisibleTrees++;
 					verify = false;
 				}
 				else {
-					//jos
+					//dreapta
 					verify = true;
-					int columnDown = colomn + 1;
-					while (columnDown < length) {
-						if (trees[row][columnDown] >= value) {
+					int columnRight = colomn + 1;
+					while (columnRight < length) {
+						if (trees[row][columnRight] >= value) {
 							verify = false;
 							break;
 						}
-						columnDown++;
+						columnRight++;
 					}
 					if (verify) {
 						numberOfVisibleTrees++;
@@ -84,16 +84,16 @@ int getPart1(const string& fileName)
 					else
 					{
 
-						//sus
+						//stanga
 						verify = true;
 
-						int columnUp = colomn - 1;
-						while (columnUp >= 0) {
-							if (trees[row][columnUp] >= value) {
+						int columnLeft = colomn - 1;
+						while (columnLeft >= 0) {
+							if (trees[row][columnLeft] >= value) {
 								verify = false;
 								break;
 							}
-							columnUp--;
+							columnLeft--;
 						}
 						if (verify) {
 							numberOfVisibleTrees++;
@@ -134,7 +134,6 @@ int getPart2(const string& fileName)
 	}*/
 	int numberOfVisibleTrees = 0;
 	int previousMax = 0;
-	int m, n;
 	for (int row = 0; row < length; ++row) {
 		for (int colomn = 0; colomn < length; ++colomn) {
 			//jos 
@@ -143,7 +142,6 @@ int getPart2(const string& fileName)
 			int value = trees[row][colomn];
 			int rowDown = row + 1;
 			while (rowDown < length) {
-				int b = trees[rowDown][colomn];
 				if (trees[rowDown][colomn] < value) {
 					sumDown++;
 				}
@@ -156,7 +154,6 @@ int getPart2(const string& fileName)
 			//sus
 			int rowUp = row - 1;
 			while (rowUp >= 0) {
-				int c = trees[rowUp][colomn];
 				if (trees[rowUp][colomn] < value) {
 					sumUp++;
 
@@ -171,7 +168,6 @@ int getPart2(const string& fileName)
 			//dreapta
 			int columnRight = colomn + 1;
 			while (columnRight < length) {
-				int d = trees[row][columnRight];
 				if (trees[row][columnRight] < value) {
 					sumRight++;
 
