@@ -19,8 +19,6 @@ void getInput(const string& fileName, vector<string>& instructions)
 
 }
 
-
-
 int processInstructions(vector<string>& instructions)
 {
 	int signalStrengthTotal = 0;
@@ -190,6 +188,7 @@ void processInstructionsPart2(vector<string>& instructions)
 		}
 	}
 }
+
 int main()
 {
 	vector<string> instructions;
