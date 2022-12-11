@@ -56,8 +56,8 @@ int processInstructions(vector<string>& instructions)
 	}
 	cout << signalStrengthTotal;
 	return signalStrengthTotal;
-
 }
+
 void processInstructionsPart2(vector<string>& instructions)
 {
 	int signalStrengthTotal = 0;
@@ -181,14 +181,12 @@ void processInstructionsPart2(vector<string>& instructions)
 					{
 						fileOut << endl << ".";
 					}
-					
 				}
 				else {
 					fileOut << ".";
 				}
 			}
 			cycle++;
-
 		}
 	}
 }
