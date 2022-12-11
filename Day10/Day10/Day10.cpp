@@ -8,7 +8,7 @@
 
 using namespace std;
 
-void getInput(const string & fileName, vector<string>& instructions)
+void getInput(const string& fileName, vector<string>& instructions)
 {
 	ifstream input;
 	input.open(fileName);
@@ -16,7 +16,7 @@ void getInput(const string & fileName, vector<string>& instructions)
 	while (getline(input, line)) {
 		instructions.push_back(line);
 	}
-	
+
 }
 
 
@@ -58,12 +58,146 @@ int processInstructions(vector<string>& instructions)
 	return signalStrengthTotal;
 
 }
+void processInstructionsPart2(vector<string>& instructions)
+{
+	int signalStrengthTotal = 0;
+	int registerX = 1, cycle = 1;
+	int crt = 0;
+	ofstream fileOut;
+	fileOut.open("output.out");
+	for (auto instruction : instructions) {
+
+
+		string instructionType = "";
+		for (int i = 0; i < 4; i++)
+		{
+			instructionType = instructionType + instruction[i];
+		}
+		if (instructionType == "addx")
+		{
+			crt = cycle - 1;
+			if (abs(registerX - crt) <= 1) {
+				if (crt == 40) {
+					crt = 0;
+					cycle = 1;
+					if (abs(registerX - crt) <= 1) {
+						fileOut << endl << "#";
+					}
+					else
+					{
+						fileOut << endl << ".";
+					}
+				}
+				else {
+					fileOut << "#";
+				}
+			}
+			else
+			{
+				if (crt == 40) {
+					crt = 0;
+					cycle = 1;
+					if (abs(registerX - crt) <= 1) {
+						fileOut << endl << "#";
+					}
+					else
+					{
+						fileOut << endl << ".";
+					}
+				}
+				else {
+					fileOut << ".";
+				}
+			}
+			cycle++;
+			string addNumber = "";
+			addNumber = instruction.substr(instruction.find(' ') + 1);
+			signed int number;
+			crt = cycle - 1;
+			number = stoi(addNumber);
+			if (abs(registerX - crt) <= 1) {
+				if (crt == 40) {
+					crt = 0;
+					cycle = 1;
+					if (abs(registerX - crt) <= 1) {
+						fileOut << endl << "#";
+					}
+					else
+					{
+						fileOut << endl << ".";
+					}
+				}
+				else {
+					fileOut << "#";
+				}
+			}
+			else
+			{
+				if (crt == 40) {
+					crt = 0;
+					cycle = 1;
+					if (abs(registerX - crt) <= 1) {
+						fileOut << endl << "#";
+					}
+					else
+					{
+						fileOut << endl << ".";
+					}
+				}
+				else {
+					fileOut << ".";
+				}
+			}
+			cycle++;
+			registerX = registerX + number;
+		}
+		else {
+			crt = cycle - 1;
+			if (abs(registerX - crt) <= 1) {
+				if (crt == 40) {
+					crt = 0;
+					cycle = 1;
+					if (abs(registerX - crt) <= 1) {
+						fileOut << endl << "#";
+					}
+					else
+					{
+						fileOut << endl << ".";
+					}
+				}
+				else {
+					fileOut << "#";
+				}
+			}
+			else
+			{
+				if (crt == 40) {
+					crt = 0;
+					cycle = 1;
+					if (abs(registerX - crt) <= 1) {
+						fileOut << endl << "#";
+					}
+					else
+					{
+						fileOut << endl << ".";
+					}
+					
+				}
+				else {
+					fileOut << ".";
+				}
+			}
+			cycle++;
+
+		}
+	}
+}
 int main()
 {
 	vector<string> instructions;
 	getInput("input.in", instructions);
 	processInstructions(instructions);
-	//processInstructionsPart2(instructions);
+	processInstructionsPart2(instructions);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
